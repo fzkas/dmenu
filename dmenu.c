@@ -698,9 +698,8 @@ setup(void)
 	if ((xim = XOpenIM(dpy, NULL, NULL, NULL)) == NULL)
 		die("XOpenIM failed: could not open input device");
 
-	if ((xic = XCreateIC(xim, XNInputStyle, XIMPreeditNothing | XIMStatusNothing,
-	                XNClientWindow, win, XNFocusWindow, win, NULL)) == NULL)
-		die("XCreateIC failed: could not obtain input context");
+	xic = XCreateIC(xim, XNInputStyle, XIMPreeditNothing | XIMStatusNothing,
+	                XNClientWindow, win, XNFocusWindow, win, NULL);
 
 	XMapRaised(dpy, win);
 	if (embed) {
