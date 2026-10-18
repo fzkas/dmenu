@@ -1,23 +1,22 @@
-/* See LICENSE file for copyright and license details. */
-/* Default settings; can be overriden by command line. */
+/* dusk-castle theme for dmenu — paste over the matching parts of config.h */
 
-static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
-/* -fn option overrides fonts[0]; default X11 font or font set */
+static int topbar = 1;
 static const char *fonts[] = {
-	"monospace:size=10"
+	"JetBrainsMono Nerd Font:size=10"
 };
-static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
-static const char *colors[SchemeLast][2] = {
-	/*     fg         bg       */
-	[SchemeNorm] = { "#bbbbbb", "#222222" },
-	[SchemeSel] = { "#eeeeee", "#005577" },
-	[SchemeOut] = { "#000000", "#00ffff" },
-};
-/* -l option; if nonzero, dmenu uses vertical list with given number of lines */
-static unsigned int lines      = 0;
+static const char *prompt = NULL;
 
-/*
- * Characters not considered part of a word while deleting words
- * for example: " /?\"&[]"
- */
+static const char *colors[SchemeLast][2] = {
+	/*                  fg         bg       */
+	[SchemeNorm]          = { "#cdc6ee", "#1b1a29" },
+	[SchemeSel]           = { "#1b1a29", "#b79ce6" },
+	[SchemeOut]           = { "#1b1a29", "#f5b668" },
+	/* with the "highlight" patch: matched text in sunset orange / pink */
+};
+
+static int borderpx = 0;
+
+static unsigned int lines = 0;
 static const char worddelimiters[] = " ";
+/* Recommended patches: center, border, fuzzymatch, highlight
+ * border width 2 with colour #b79ce6 matches the floating window look. */
